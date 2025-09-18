@@ -323,7 +323,7 @@ def main(args, config):
 
     # --- Define Loss Functions ---
     criterion_hard = torch.nn.CrossEntropyLoss(ignore_index=PAD_IDX, label_smoothing=0.2)
-    criterion_soft = DistillationLoss(temp=args.distillation_temp)
+    criterion_soft = DistillationLoss(temp=2)
 
     output_dir = Path(args.output_dir)
     if args.resume:

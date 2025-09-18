@@ -485,7 +485,7 @@ class gloss_free_model(nn.Module):
 
 
 class gloss_free_model_Prompt(nn.Module):
-    def __init__(self, config, args, embed_dim=1024, pretrain=None, num_prompts=10):
+    def __init__(self, config, args, embed_dim=1024, pretrain=None, num_prompts=50):
         super(gloss_free_model_Prompt, self).__init__()
         self.config = config
         self.args = args

@@ -266,15 +266,14 @@ def main(args, config):
     n_parameters = utils.count_parameters_in_MB(model_without_ddp)
     print(f'number of params: {n_parameters}M')
 
-    # 1. 首先，冻结模型中的所有参数
+
     for param in model_without_ddp.parameters():
         param.requires_grad = False
 
-    # 2. 然后，只解冻 soft_prompts 相关的参数
     print("Unfreezing soft_prompt parameters...")
     params_to_train_names = []
     for name, param in model_without_ddp.named_parameters():
-        # 通过名称判断是否为 soft_prompts 参数
+    
         if 'soft_prompts' in name:
             param.requires_grad = True
             params_to_train_names.append(name)
